@@ -1,7 +1,7 @@
 {% set name = "statsmodels" %}
-{% set version = "0.6.1" %}
+{% set version = "0.8.0rc1" %}
 {% set build = 0 %}
-{% set md5 = "f7580ebf7d2a2c9b87abfad190dcb9a3" %}
+{% set md5 = "d740af04434a2c305d5343f6f6db305c" %}
 
 package:
     name: {{ name }}
@@ -43,3 +43,4 @@ about:
 extra:
     recipe-maintainers:
         - tomaugspurger
+        - ericmjl
