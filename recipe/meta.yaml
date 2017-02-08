@@ -1,7 +1,7 @@
 {% set name = "statsmodels" %}
-{% set version = "0.6.1" %}
+{% set version = "0.8.0" %}
 {% set build = 0 %}
-{% set md5 = "f7580ebf7d2a2c9b87abfad190dcb9a3" %}
+{% set md5 = "b3e5911cc9b00b71228d5d39a880bba0" %}
 
 package:
     name: {{ name }}
