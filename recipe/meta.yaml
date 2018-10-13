@@ -19,13 +19,13 @@ requirements:
     - python
     - pip
     - cython
-    - numpy >=1.11
+    - numpy 1.11.*
     - scipy
     - pandas
     - patsy
   run:
     - python
-    - numpy >=1.11
+    - {{ pin_compatible('numpy') }}
     - scipy
     - pandas
     - patsy
