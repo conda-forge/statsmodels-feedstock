@@ -10,7 +10,7 @@ source:
 
 build:
   number: 1000
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
 
 requirements:
   build:
@@ -19,16 +19,16 @@ requirements:
     - python
     - pip
     - cython
-    - numpy 1.11.*
-    - scipy
-    - pandas
-    - patsy
+    - numpy
+    - scipy >=0.14
+    - pandas >=0.14
+    - patsy >=0.4.0
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - scipy
-    - pandas
-    - patsy
+    - scipy >=0.14
+    - pandas >=0.14
+    - patsy >=0.4.0
 
 test:
   imports:
