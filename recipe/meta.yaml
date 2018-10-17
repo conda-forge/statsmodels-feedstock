@@ -19,7 +19,8 @@ requirements:
     - python
     - pip
     - cython
-    - numpy
+    - numpy 1.14.*  # [win]
+    - numpy  # [not win]
     - scipy >=0.14
     - pandas >=0.14
     - patsy >=0.4.0
