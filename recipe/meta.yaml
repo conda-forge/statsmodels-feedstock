@@ -9,24 +9,27 @@ source:
   sha256: 6461f93a842c649922c2c9a9bc9d9c4834110b89de8c4af196a791ab8f42ba3b
 
 build:
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1000
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
-    - setuptools
+    - pip
     - cython
-    - numpy 1.11.*
-    - scipy
-    - pandas
-    - patsy
+    - numpy 1.14.*  # [win]
+    - numpy  # [not win]
+    - scipy >=0.14
+    - pandas >=0.14
+    - patsy >=0.4.0
   run:
     - python
-    - numpy >=1.11
-    - scipy
-    - pandas
-    - patsy
+    - {{ pin_compatible('numpy') }}
+    - scipy >=0.14
+    - pandas >=0.14
+    - patsy >=0.4.0
 
 test:
   imports:
@@ -36,6 +39,8 @@ about:
   home: https://www.statsmodels.org
   license: BSD 3-Clause
   summary: 'Statistical computations and models for use with SciPy'
+  dev_url: https://github.com/statsmodels/statsmodels
+  doc_url: https://www.statsmodels.org/stable/
 
 extra:
   recipe-maintainers:
