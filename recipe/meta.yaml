@@ -1,4 +1,4 @@
-{% set version = "0.10.0" %}
+{% set version = "0.10.1" %}
 
 package:
   name: statsmodels
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
-  sha256: 65f321640e21134fc18b312fb2f3edcfbd23ddc36831a06e2445f9f2d7c01aba
+  sha256: 320659a80f916c2edf9dfbe83512d9004bb562b72eedb7d9374562038697fa10
 
 build:
   number: 0
