@@ -9,7 +9,7 @@ source:
   sha256: 320659a80f916c2edf9dfbe83512d9004bb562b72eedb7d9374562038697fa10
 
 build:
-  number: 1
+  number: 2
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
 
 requirements:
@@ -19,8 +19,7 @@ requirements:
     - python
     - pip
     - cython
-    - numpy 1.14.*  # [win]
-    - numpy  # [not win]
+    - numpy
     - scipy >=0.14
     - pandas >=0.14
     - patsy >=0.4.0
@@ -37,7 +36,8 @@ test:
 
 about:
   home: https://www.statsmodels.org
-  license: BSD 3-Clause
+  license: BSD-3-Clause
+  license_file: INSTALL.txt
   summary: 'Statistical computations and models for use with SciPy'
   dev_url: https://github.com/statsmodels/statsmodels
   doc_url: https://www.statsmodels.org/stable/
