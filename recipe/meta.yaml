@@ -1,4 +1,4 @@
-{% set version = "0.10.2" %}
+{% set version = "0.11.0" %}
 
 package:
   name: statsmodels
@@ -6,11 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
-  sha256: 9cd2194c6642a8754e85f9a6e6912cdf996bebf6ff715d3cc67f65dadfd37cc9
+  sha256: 0a8ee8fc091d9ef1db68f01e6e0079acc0f41671dfbac463131939ca573f8c71
 
 build:
   number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  skip: True  # [py2k]  
 
 requirements:
   build:
@@ -19,16 +20,16 @@ requirements:
     - python
     - pip
     - cython
-    - numpy
-    - scipy >=0.14
-    - pandas >=0.14
-    - patsy >=0.4.0
+    - numpy >=1.14
+    - scipy >=1.0
+    - pandas >=0.21
+    - patsy >=0.5.1
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - scipy >=0.14
-    - pandas >=0.14
-    - patsy >=0.4.0
+    - scipy >=1.0
+    - pandas >=0.21
+    - patsy >=0.5.1
 
 test:
   imports:
