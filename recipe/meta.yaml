@@ -32,6 +32,10 @@ requirements:
     - patsy >=0.5.1
 
 test:
+  requires:
+    - pip
+  commands:
+    - pip check
   imports:
     - statsmodels
 
