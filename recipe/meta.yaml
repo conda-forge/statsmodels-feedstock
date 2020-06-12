@@ -20,9 +20,9 @@ requirements:
     - python
     - pip
     - cython
-    - numpy  # [ aarch64 ]
-    - numpy =1.15  # [py<38 and not aarch64 ]
-    - numpy =1.16  # [py>=38 and not aarch64 ]
+    - numpy  # [aarch64]
+    - numpy =1.15  # [py<38 and not aarch64]
+    - numpy =1.16  # [py>=38 and not aarch64]
     - scipy >=1.0
     - pandas >=0.21
     - patsy >=0.5.1
