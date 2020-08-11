@@ -9,9 +9,9 @@ source:
   sha256: ee498df4514ee090fc32b68cafd2440d14fa2834b2bd90b45dbfe8ff73c7f307
 
 build:
-  number: 2
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-  skip: True  # [py2k]  
+  skip: True  # [py2k]
 
 requirements:
   build:
@@ -20,17 +20,17 @@ requirements:
     - python
     - pip
     - cython
-    - numpy  # [aarch64]
-    - numpy =1.15  # [py<38 and not aarch64]
-    - numpy =1.16  # [py>=38 and not aarch64]
-    - scipy >=1.0
-    - pandas >=0.21
+    - numpy 1.15  # [py<38 and not (aarch64 or ppc64le)]
+    - numpy 1.16  # [py>=38 and not (aarch64 or ppc64le)]
+    - numpy  # [aarch64 or ppc64le]
+    - scipy >=1.2
+    - pandas >=0.23
     - patsy >=0.5.1
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - scipy >=1.0
-    - pandas >=0.21
+    - scipy >=1.2
+    - pandas >=0.23
     - patsy >=0.5.1
 
 test:
