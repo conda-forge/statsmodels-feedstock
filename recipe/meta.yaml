@@ -20,9 +20,7 @@ requirements:
     - python
     - pip
     - cython
-    - numpy 1.15  # [py<38 and not (aarch64 or ppc64le)]
-    - numpy 1.16  # [py>=38 and not (aarch64 or ppc64le)]
-    - numpy  # [aarch64 or ppc64le]
+    - numpy
     - scipy >=1.2
     - pandas >=0.23
     - patsy >=0.5.1
