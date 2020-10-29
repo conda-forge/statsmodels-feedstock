@@ -1,4 +1,4 @@
-{% set version = "0.12.0" %}
+{% set version = "0.12.1" %}
 
 package:
   name: statsmodels
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
-  sha256: 5c7d6707ad3112b67f564abaf1845d3c02ecc7174c2d990d539f45c37e98ad35
+  sha256: a271b4ccec190148dccda25f0cbdcbf871f408fc1394a10a7dc1af4a62b91c8e
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-  skip: True  # [py2k]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  skip: true  # [py2k]
 
 requirements:
   build:
@@ -43,7 +43,7 @@ about:
   home: https://www.statsmodels.org
   license: BSD-3-Clause
   license_file: INSTALL.txt
-  summary: 'Statistical computations and models for use with SciPy'
+  summary: Statistical computations and models for use with SciPy
   dev_url: https://github.com/statsmodels/statsmodels
   doc_url: https://www.statsmodels.org/stable/
 
