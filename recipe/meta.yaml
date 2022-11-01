@@ -17,13 +17,13 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=2.9.32                        # [build_platform != target_platform]
+    - cython >=0.29.32                        # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
     - pip
-    - cython >=2.9.32
+    - cython >=0.29.32
     # Do not add any constraint on numpy here to use global pinning
     - numpy
     - scipy >=1.3
