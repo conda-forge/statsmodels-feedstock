@@ -1,4 +1,4 @@
-{% set version = "0.13.2" %}
+{% set version = "0.13.4" %}
 
 package:
   name: statsmodels
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
-  sha256: 77dc292c9939c036a476f1770f9d08976b05437daa229928da73231147cde7d4
+  sha256: 8ee5d1b69f64bc0e9379667455ee3585849d5e6bcd3f3e48e58ba6cadadfead5
 
 build:
   number: 0
@@ -17,13 +17,13 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - cython >=0.29.32                        # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - python
     - pip
-    - cython
+    - cython >=0.29.32
     # Do not add any constraint on numpy here to use global pinning
     - numpy
     - scipy >=1.3
