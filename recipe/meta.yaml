@@ -10,7 +10,7 @@ source:
 
 build:
   number: 2
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<37]
 
 requirements:
@@ -20,7 +20,6 @@ requirements:
     - cython >=0.29.32                       # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - setuptools_scm[toml] ~=7.0.0
   host:
     - python
     - pip
@@ -30,6 +29,7 @@ requirements:
     - scipy >=1.3
     - pandas >=1.0
     - patsy >=0.5.2
+    - setuptools_scm ~=7.0.0    
   run:
     - python
     - {{ pin_compatible('numpy') }}
