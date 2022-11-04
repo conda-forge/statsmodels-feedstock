@@ -20,7 +20,7 @@ requirements:
     - cython >=0.29.32                       # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - setuptools_scm[toml]~=7.0.0
+    - setuptools_scm[toml] ~=7.0.0
   host:
     - python
     - pip
