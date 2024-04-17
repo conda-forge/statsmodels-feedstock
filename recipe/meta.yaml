@@ -23,7 +23,7 @@ requirements:
   host:
     - python
     - pip
-    - cython >=0.29.26,<3
+    - cython >=3.0.10,<4
     # Do not add any constraint on numpy here to use global pinning
     - numpy
     - scipy >=1.8
