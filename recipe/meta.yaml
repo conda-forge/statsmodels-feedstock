@@ -1,4 +1,4 @@
-{% set version = "0.14.1" %}
+{% set version = "0.14.2" %}
 
 package:
   name: statsmodels
@@ -6,36 +6,37 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
-  sha256: 2260efdc1ef89f39c670a0bd8151b1d0843567781bcafec6cda0534eb47a94f6
+  sha256: 890550147ad3a81cda24f0ba1a5c4021adc1601080bd00e191ae7cd6feecd6ad
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [py<37]
+  skip: true  # [py<39]
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.29.26,<3                    # [build_platform != target_platform]
+    - cython >=3.0.10,<4                     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - scipy >= 1.13.0                        # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
     - python
     - pip
-    - cython >=0.29.26,<3
+    - cython >=3.0.10,<4
     # Do not add any constraint on numpy here to use global pinning
     - numpy
-    - scipy >=1.4
-    - pandas >=1.0
-    - patsy >=0.5.2
-    - setuptools_scm >=7.0.0,<7.1.dev0
+    - scipy >=1.8
+    - pandas >=1.4
+    - patsy >=0.5.6
+    - setuptools_scm >=8.0.0,<9
   run:
     - python
-    - scipy >=1.4,!=1.9.2
-    - pandas >=1.0,!=2.1.0
-    - patsy >=0.5.4
+    - scipy >=1.8,!=1.9.2
+    - pandas >=1.4,!=2.1.0
+    - patsy >=0.5.6
     - packaging >=21.3
 test:
   requires:
