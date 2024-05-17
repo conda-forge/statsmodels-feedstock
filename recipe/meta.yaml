@@ -9,7 +9,7 @@ source:
   sha256: 2260efdc1ef89f39c670a0bd8151b1d0843567781bcafec6cda0534eb47a94f6
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<37]
 
@@ -20,6 +20,7 @@ requirements:
     - cython >=0.29.26,<3                    # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
@@ -32,7 +33,6 @@ requirements:
     - setuptools_scm >=7.0.0,<7.1.dev0
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - scipy >=1.4,!=1.9.2
     - pandas >=1.0,!=2.1.0
     - patsy >=0.5.4
