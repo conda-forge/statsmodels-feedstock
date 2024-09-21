@@ -25,6 +25,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - cython >=3.0.10,<4
     # Do not add any constraint on numpy here to use global pinning
     - numpy
