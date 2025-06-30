@@ -9,7 +9,7 @@ source:
   sha256: 5d69e0f39060dc72c067f9bb6e8033b6dccdb0bae101d76a7ef0bcc94e898b67
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<39]
   skip: true  # [python_impl == "pypy"]
@@ -29,7 +29,7 @@ requirements:
     - cython >=3.0.10,<4
     # Do not add any constraint on numpy here to use global pinning
     - numpy
-    - scipy >=1.13.0
+    - scipy >=1.13.0,<1.16.0
     - pandas >=1.4
     - patsy >=0.5.6
     - setuptools_scm >=8.0.0,<9
