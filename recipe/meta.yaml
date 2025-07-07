@@ -1,15 +1,15 @@
-{% set version = "0.14.4" %}
+{% set version = "0.14.5" %}
 
 package:
   name: statsmodels
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
-  sha256: 5d69e0f39060dc72c067f9bb6e8033b6dccdb0bae101d76a7ef0bcc94e898b67
+  url: https://pypi.org/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
+  sha256: de260e58cccfd2ceddf835b55a357233d6ca853a1aa4f90f7553a52cc71c6ddf
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<39]
   skip: true  # [python_impl == "pypy"]
@@ -36,7 +36,7 @@ requirements:
   run:
     - numpy <3,>=1.22.3
     - python
-    - scipy >=1.8,!=1.9.2,<1.16.0
+    - scipy !=1.9.2,>=1.8
     - pandas !=2.1.0,>=1.4
     - patsy >=0.5.6
     - packaging >=21.3
