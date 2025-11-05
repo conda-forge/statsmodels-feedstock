@@ -1,0 +1,71 @@
+schema_version: 1
+
+context:
+  version: 0.14.5
+
+package:
+  name: statsmodels
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/s/statsmodels/statsmodels-${{ version }}.tar.gz
+  sha256: de260e58cccfd2ceddf835b55a357233d6ca853a1aa4f90f7553a52cc71c6ddf
+
+build:
+  number: 2
+  skip: python_impl == "pypy"
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cython >=3.0.10,<4
+        - numpy
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+  host:
+    - python
+    - pip
+    - setuptools
+    - cython >=3.0.10,<4
+    # Do not add any constraint on numpy here to use global pinning
+    - numpy
+    - scipy >=1.13.0
+    - pandas >=1.4
+    - patsy >=0.5.6
+    - setuptools_scm >=8.0.0,<9
+  run:
+    - numpy <3,>=1.22.3
+    - python
+    - scipy !=1.9.2,>=1.8
+    - pandas !=2.1.0,>=1.4
+    - patsy >=0.5.6
+    - packaging >=21.3
+
+tests:
+  - python:
+      imports:
+        - statsmodels
+  - requirements:
+      run:
+        - pip
+    script:
+      - pip check
+
+about:
+  license: BSD-3-Clause
+  license_file: INSTALL.txt
+  summary: Statistical computations and models for use with SciPy
+  homepage: https://www.statsmodels.org
+  repository: https://github.com/statsmodels/statsmodels
+  documentation: https://www.statsmodels.org/stable/
+
+extra:
+  recipe-maintainers:
+    - tomaugspurger
+    - croth1
+    - ocefpaf
+    - bashtage
