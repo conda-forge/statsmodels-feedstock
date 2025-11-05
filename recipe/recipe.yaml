@@ -49,11 +49,7 @@ tests:
   - python:
       imports:
         - statsmodels
-  - requirements:
-      run:
-        - pip
-    script:
-      - pip check
+      pip_check: true
 
 about:
   license: BSD-3-Clause
