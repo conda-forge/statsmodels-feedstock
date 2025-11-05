@@ -57,7 +57,9 @@ tests:
 
 about:
   license: BSD-3-Clause
-  license_file: INSTALL.txt
+  license_file:
+    - COPYRIGHTS.txt
+    - LICENSE.txt
   summary: Statistical computations and models for use with SciPy
   homepage: https://www.statsmodels.org
   repository: https://github.com/statsmodels/statsmodels
