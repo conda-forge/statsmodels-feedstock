@@ -3,7 +3,7 @@ About statsmodels-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/statsmodels-feedstock/blob/main/LICENSE.txt)
 
-Home: https://www.statsmodels.org
+Home: https://www.statsmodels.org/
 
 Package license: BSD-3-Clause
 
