@@ -1,0 +1,66 @@
+schema_version: 1
+
+context:
+  version: "0.15.0"
+
+package:
+  name: statsmodels
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/s/statsmodels/statsmodels-${{ version }}.tar.gz
+  sha256: 5d257fe58d0772bc46a557880ca78e2a8e07fec7bfd9d11074aef8e33e1aecbc
+
+build:
+  number: 0
+  skip: match(python, "<3.10")
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cython >=3.0.13,<4
+        - numpy >=2.0.0,<3
+        - meson-python
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+  host:
+    - python
+    - pip
+    - setuptools
+    - setuptools-scm >=9.2.0,<10
+    - meson-python
+    - cython >=3.0.13,<4
+    - numpy
+    - scipy >=1.13,<2
+  run:
+    - python
+    - numpy >=1.23.5,<3
+    - scipy >=1.8,!=1.9.2
+    - pandas >=1.4,!=2.1.0
+    - patsy >=0.5.6
+    - packaging >=21.3
+    - formulaic >=1.1.0
+
+tests:
+  - python:
+      imports:
+        - statsmodels
+      pip_check: true
+
+about:
+  summary: Statistical computations and models for Python
+  license: BSD-3-Clause
+  license_file:
+    - LICENSE.txt
+  homepage: https://pypi.org/project/statsmodels/
+
+extra:
+  recipe-maintainers:
+    - tomaugspurger
+    - croth1
+    - ocefpaf
+    - bashtage
