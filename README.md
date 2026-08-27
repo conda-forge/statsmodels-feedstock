@@ -3,15 +3,11 @@ About statsmodels-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/statsmodels-feedstock/blob/main/LICENSE.txt)
 
-Home: https://www.statsmodels.org
+Home: https://pypi.org/project/statsmodels/
 
 Package license: BSD-3-Clause
 
-Summary: Statistical computations and models for use with SciPy
-
-Development: https://github.com/statsmodels/statsmodels
-
-Documentation: https://www.statsmodels.org/stable/
+Summary: Statistical computations and models for Python
 
 Current build status
 ====================
