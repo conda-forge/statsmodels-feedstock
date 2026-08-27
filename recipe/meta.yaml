@@ -1,12 +1,12 @@
-{% set version = "0.14.6" %}
+{% set version = "0.15.0" %}
 
 package:
   name: statsmodels
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
-  sha256: 4d17873d3e607d398b85126cd4ed7aad89e4e9d89fc744cdab1af3189a996c2a
+  url: https://files.pythonhosted.org/packages/source/s/statsmodels/statsmodels-{{ version }}.tar.gz
+  sha256: 5d257fe58d0772bc46a557880ca78e2a8e07fec7bfd9d11074aef8e33e1aecbc
 
 build:
   number: 0
@@ -34,10 +34,11 @@ requirements:
     - patsy >=0.5.6
     - setuptools_scm >=8.0.0,<9
   run:
-    - numpy <3,>=1.22.3
+    - formulaic >=1.1.0
+    - numpy >=1.23.5,<3
     - python
-    - scipy !=1.9.2,>=1.8
-    - pandas !=2.1.0,>=1.4
+    - scipy >=1.8,!=1.9.2
+    - pandas >=1.4,!=2.1.0
     - patsy >=0.5.6
     - packaging >=21.3
 test:
